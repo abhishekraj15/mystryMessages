@@ -87,23 +87,23 @@ export default function SendMessage() {
     }
   };
 
-  const fetchSuggestedMessages = async () => {
-    try {
-      // complete('');
-      setIsSuggestLoading(true);
-      const response = await axios.get("/api/suggest-messages");
-      setSuggestedMessages(parseStringMessages(response.data.questions));
-    } catch (error) {
-      console.error("Error fetching messages:", error);
-      // Handle error appropriately
-      toast({
-        title: "Error suggesting message",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSuggestLoading(false);
-    }
-  };
+  // const fetchSuggestedMessages = async () => {
+  //   try {
+  //     // complete('');
+  //     setIsSuggestLoading(true);
+  //     const response = await axios.get("/api/suggest-messages");
+  //     setSuggestedMessages(parseStringMessages(response.data.questions));
+  //   } catch (error) {
+  //     console.error("Error fetching messages:", error);
+  //     // Handle error appropriately
+  //     toast({
+  //       title: "Error suggesting message",
+  //       variant: "destructive",
+  //     });
+  //   } finally {
+  //     setIsSuggestLoading(false);
+  //   }
+  // };
 
   return (
     <>
@@ -148,7 +148,7 @@ export default function SendMessage() {
         <div className="space-y-4 my-8">
           <div className="space-y-2">
             <Button
-              onClick={fetchSuggestedMessages}
+              // onClick={fetchSuggestedMessages}
               className="my-4"
               disabled={isSuggestLoading}
             >
