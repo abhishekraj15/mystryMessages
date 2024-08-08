@@ -5,10 +5,18 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { Button } from "./ui/button";
 import { User } from "next-auth";
+import { useRouter } from "next/navigation";
 
 function Navbar() {
   const { data: session } = useSession();
   const user: User = session?.user as User;
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await signOut();
+    router.replace("/wolrd");
+    console.log("Hello");
+  };
 
   return (
     <nav className="p-4 md:p-6 shadow-md bg-gray-900 text-white">
@@ -22,7 +30,7 @@ function Navbar() {
               Welcome, {user?.username || user?.email}
             </span>
             <Button
-              onClick={() => signOut()}
+              onClick={handleSignOut}
               className="w-full md:w-auto bg-slate-100 text-black"
               variant="outline"
             >
