@@ -60,7 +60,7 @@ export default function Home() {
               </LinkPreview>{" "}
             </h1>
             <p className="mt-3 md:mt-4 text-base md:text-lg">
-              <TextGenerateEffect words={words} />;
+              <TextGenerateEffect words={words} />
             </p>
             <Meteors number={50} />
           </section>
